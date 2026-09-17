@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GoOdays product reviews — honest details, clear pros and cons, and better buying decisions." />
+  <title>Product Reviews — GoOdays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="reviews.css" />
+</head>
+<body>
+  <div class="announcement"><span>✦</span> <span data-i18n="announcement">Temuan bagus, dipilih dengan penuh perhatian.</span> <a href="reviews.html" data-i18n="announcementLink">Lihat rekomendasi →</a></div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="GoOdays home"><span class="brand-mark"><img src="assets/logo.png" alt="GoOdays logo" /></span><span>Go<span>O</span>days</span></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Primary navigation"><a href="index.html" data-i18n="navHome">Home</a><a href="index.html#categories" data-i18n="navCategories">Categories</a><a href="index.html#articles" data-i18n="navArticles">Articles</a><a class="active" href="reviews.html" data-i18n="navReviews">Product Reviews</a><a href="index.html#about" data-i18n="navAbout">About</a></nav>
+      <div class="nav-actions"><button class="lang-switch" data-lang="en" aria-label="Switch to English">EN</button><a class="button button-small button-orange" href="index.html#categories" data-i18n="explore">Explore finds</a></div>
+    </div>
+  </header>
+
+  <main class="reviews-page">
+    <section class="reviews-hero"><div class="container"><p class="eyebrow">GOODAYS / <span data-i18n="reviewEyebrow">PRODUCT REVIEWS</span></p><h1 data-i18n="pageTitle">Tried, tested,<br><em>worth sharing.</em></h1><p data-i18n="pageIntro">Clear pros, honest cons, and the details that help you decide with confidence.</p></div></section>
+    <section class="reviews-layout container">
+      <aside class="category-sidebar"><div class="sidebar-title"><span data-i18n="browseBy">BROWSE BY</span><span>↘</span></div><nav id="categoryNav" aria-label="Product categories"></nav><a class="back-home" href="index.html">← <span data-i18n="backHome">Back to home</span></a></aside>
+      <div class="review-content"><div class="review-toolbar"><div><p class="eyebrow" id="activeCategoryLabel">ALL REVIEWS</p><h2 id="activeCategoryTitle">All product reviews</h2></div><div class="review-controls"><label class="sr-only" for="productSearch">Search products</label><input id="productSearch" type="search" placeholder="Cari produk..." data-i18n-placeholder="searchPlaceholder"><span class="result-count" id="resultCount"></span></div></div><div class="product-list" id="productList"><div class="loading-state">Loading reviews...</div></div><article class="product-detail" id="productDetail" aria-live="polite"><div class="empty-detail">Pilih produk untuk melihat detail.</div></article></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark"><img src="assets/logo.png" alt="" /></span><span>Go<span>O</span>days</span></a><p data-i18n="footerText">Curated finds for everyday life.</p><div class="socials"><a href="https://instagram.com/oddychris" target="_blank" rel="noopener" aria-label="Instagram">ig</a><a href="https://www.tiktok.com/@thomasoddy" target="_blank" rel="noopener" aria-label="TikTok">tt</a></div></div><div class="container footer-bottom"><span>© 2026 GoOdays. <span data-i18n="allRights">All rights reserved.</span></span><span data-i18n="madeWith">Made for better browsing.</span></div></footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="reviews.js"></script>
+</body>
+</html>

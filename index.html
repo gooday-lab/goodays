@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GoOdays — curated product finds, honest reviews, and smarter shopping inspiration." />
+  <title>GoOdays — Find something good</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement"><span>✦</span> <span data-i18n="announcement">Temuan bagus, dipilih dengan penuh perhatian.</span> <a href="reviews.html" data-i18n="announcementLink">Lihat rekomendasi →</a></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="GoOdays home">
+        <span class="brand-mark"><img src="assets/logo.png" alt="GoOdays logo" /></span>
+        <span>Go<span>O</span>days</span>
+      </a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#categories" data-i18n="navCategories">Categories</a>
+        <a href="#articles" data-i18n="navArticles">Articles</a>
+        <a href="reviews.html" data-i18n="navReviews">Product Reviews</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-switch" data-lang="en" aria-label="Switch to English">EN</button>
+        <a class="button button-small button-orange" href="#categories" data-i18n="explore">Explore finds</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section-pad">
+      <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> <span data-i18n="eyebrow">THE GOOD STUFF, FOUND</span></p>
+          <h1 data-i18n="heroTitle">Find something<br><em>good</em> today.</h1>
+          <p class="hero-lede" data-i18n="heroText">A thoughtful guide to products worth your time, money, and space. No endless scrolling — just useful finds and honest opinions.</p>
+          <div class="hero-buttons"><a href="reviews.html" class="button button-orange" data-i18n="browseReviews">Browse reviews <span>↗</span></a><a href="#articles" class="text-link" data-i18n="readJournal">Read the journal <span>→</span></a></div>
+          <div class="hero-trust"><div class="avatar-stack"><i>G</i><i>O</i><i>F</i><i>+</i></div><span data-i18n="trust">Curated with care for curious people</span></div>
+        </div>
+        <div class="hero-art" aria-label="Featured products">
+          <div class="hero-art-bg"></div>
+          <div class="floating-note note-top"><span>✦</span><strong data-i18n="noteTop">Editor's pick</strong><small>GoOdays / 01</small></div>
+          <div class="product-orb"><div class="orb-shine"></div><span class="orb-label">G</span></div>
+          <div class="hero-card hero-card-main"><div class="card-image image-coffee"></div><div class="hero-card-meta"><span data-i18n="coffeePick">Coffee pick</span><strong>Morning ritual, upgraded.</strong><span class="mini-arrow">↗</span></div></div>
+          <div class="hero-card hero-card-small"><div class="small-stars">★★★★★</div><strong data-i18n="lovedBy">Loved by finders</strong><small>2.4k+ happy clicks</small></div>
+          <div class="scribble">good<br>things<br>inside <span>↘</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section-pad categories-section">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">01 / <span data-i18n="sectionCategories">CATEGORIES</span></p><h2 data-i18n="categoryTitle">A little something<br><em>for everyone.</em></h2></div><p class="section-intro" data-i18n="categoryIntro">From clever tech to little luxuries for home, discover categories built around real life.</p></div>
+        <div class="category-grid">
+          <a class="category-card" href="reviews.html?category=tech"><span class="category-icon">💻</span><div><h3 data-i18n="catTech">Tech</h3><p data-i18n="catTechText">Smart upgrades for your everyday</p></div><span class="card-arrow">↗</span></a>
+          <a class="category-card" href="reviews.html?category=gaming"><span class="category-icon">🎮</span><div><h3 data-i18n="catGaming">Gaming</h3><p data-i18n="catGamingText">Level up your setup</p></div><span class="card-arrow">↗</span></a>
+          <a class="category-card" href="reviews.html?category=home-lifestyle"><span class="category-icon">🏠</span><div><h3 data-i18n="catHome">Home & Lifestyle</h3><p data-i18n="catHomeText">Make your space feel like you</p></div><span class="card-arrow">↗</span></a>
+          <a class="category-card" href="reviews.html?category=coffee"><span class="category-icon">☕</span><div><h3 data-i18n="catCoffee">Coffee</h3><p data-i18n="catCoffeeText">Better mornings start here</p></div><span class="card-arrow">↗</span></a>
+          <a class="category-card" href="reviews.html?category=gadgets"><span class="category-icon">📱</span><div><h3 data-i18n="catGadgets">Gadgets</h3><p data-i18n="catGadgetsText">Tiny tools, big difference</p></div><span class="card-arrow">↗</span></a>
+          <a class="category-card category-deals" href="reviews.html?category=deals"><span class="category-icon">🔥</span><div><h3 data-i18n="catDeals">Deals</h3><p data-i18n="catDealsText">Good stuff at better prices</p></div><span class="card-arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles" class="section-pad editorial-section">
+      <div class="container">
+        <div class="section-heading heading-inline"><div><p class="eyebrow">02 / <span data-i18n="sectionArticles">THE JOURNAL</span></p><h2 data-i18n="articleTitle">A smarter way<br><em>to discover.</em></h2></div><a href="#articles" class="text-link" data-i18n="allArticles">All articles <span>→</span></a></div>
+        <div class="article-grid"><div class="home-reviews-empty">Loading published articles...</div></div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section-pad reviews-section">
+      <div class="container">
+        <div class="section-heading heading-inline"><div><p class="eyebrow">03 / <span data-i18n="sectionReviews">PRODUCT REVIEWS</span></p><h2 data-i18n="reviewTitle">Tried, tested,<br><em>worth sharing.</em></h2></div><div class="section-heading-actions"><p class="section-intro" data-i18n="reviewIntro">Clear pros, honest cons, and the details that help you decide with confidence.</p><a href="reviews.html" class="text-link" data-i18n="allReviews">See all reviews <span>→</span></a></div></div>
+        <div class="review-grid"><div class="home-reviews-empty">Loading featured reviews...</div></div>
+      </div>
+    </section>
+
+    <section class="newsletter section-pad"><div class="container newsletter-inner"><div><p class="eyebrow light">THE GOOD LIST</p><h2 data-i18n="newsletterTitle">Good finds,<br><em>delivered.</em></h2><p data-i18n="newsletterText">A short, sweet round-up of things worth knowing. No noise, ever.</p></div><form id="newsletterForm" class="newsletter-form"><label class="sr-only" for="email">Email</label><input id="email" type="email" required placeholder="your@email.com" data-i18n-placeholder="emailPlaceholder"><button type="submit" class="button button-cream" data-i18n="subscribe">Subscribe <span>→</span></button><small data-i18n="noSpam">No spam. Just good things.</small></form></div></section>
+
+    <section id="about" class="section-pad about-section"><div class="container about-grid"><div><p class="eyebrow">04 / <span data-i18n="sectionAbout">ABOUT GOODAYS</span></p><h2 data-i18n="aboutTitle">Less noise.<br><em>More good.</em></h2></div><div class="about-copy"><p class="big-copy" data-i18n="aboutLead">GoOdays is a curated corner of the internet for people who like buying better, not more.</p><p data-i18n="aboutText">We look for products with a reason to exist, read the fine print, and share what we would genuinely recommend to a friend. Because the best find is the one that keeps being useful long after the unboxing.</p><a href="#contact" class="text-link" data-i18n="sayHello">Say hello <span>↗</span></a></div></div></section>
+
+    <section id="contact" class="contact-section"><div class="container contact-grid"><div><p class="eyebrow light">05 / <span data-i18n="sectionContact">CONTACT</span></p><h2 data-i18n="contactTitle">Have a good<br><em>idea?</em></h2><p data-i18n="contactText">Questions, partnerships, or just want to share a great find? We would love to hear from you.</p><a class="contact-email" href="mailto:thomasoddyc@gmail.com">thomasoddyc@gmail.com <span>↗</span></a></div><form id="contactForm" class="contact-form"><div class="form-row"><label><span data-i18n="nameLabel">Name</span><input type="text" name="name" required placeholder="Your name" data-i18n-placeholder="namePlaceholder"></label><label><span data-i18n="emailLabel">Email</span><input type="email" name="email" required placeholder="you@email.com" data-i18n-placeholder="emailPlaceholder"></label></div><label><span data-i18n="messageLabel">Message</span><textarea name="message" rows="4" required placeholder="Tell us something good..." data-i18n-placeholder="messagePlaceholder"></textarea></label><button type="submit" class="button button-orange" data-i18n="sendMessage">Send message <span>↗</span></button></form></div></section>
+
+    <section class="legal-section section-pad"><div class="container legal-grid"><div><p class="eyebrow">06 / <span data-i18n="sectionLegal">THE FINE PRINT</span></p><h2 data-i18n="legalTitle">Clear is<br><em>kind.</em></h2></div><div class="legal-links"><button data-legal="privacy" data-i18n="privacy">Privacy Policy <span>↗</span></button><button data-legal="terms" data-i18n="terms">Terms & Conditions <span>↗</span></button><button data-legal="affiliate" data-i18n="affiliate">Affiliate Disclosure <span>↗</span></button><button data-legal="disclaimer" data-i18n="disclaimer">Disclaimer <span>↗</span></button></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="#home"><span class="brand-mark"><img src="assets/logo.png" alt="" /></span><span>Go<span>O</span>days</span></a><p data-i18n="footerText">Curated finds for everyday life.</p><div class="socials"><a href="https://instagram.com/oddychris" target="_blank" rel="noopener" aria-label="Instagram">ig</a><a href="https://www.tiktok.com/@thomasoddy" target="_blank" rel="noopener" aria-label="TikTok">tt</a></div></div><div class="container footer-bottom"><span>© 2026 GoOdays. <span data-i18n="allRights">All rights reserved.</span></span><span data-i18n="madeWith">Made for better browsing.</span></div></footer>
+
+  <div class="modal" id="legalModal" aria-hidden="true"><div class="modal-backdrop"></div><div class="modal-card"><button class="modal-close" aria-label="Close">×</button><p class="eyebrow">GOODAYS / <span data-i18n="sectionLegal">THE FINE PRINT</span></p><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

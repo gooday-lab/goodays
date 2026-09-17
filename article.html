@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GoOdays article — thoughtful guides and useful product discoveries." />
+  <title>Article — GoOdays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="reviews.css" />
+  <link rel="stylesheet" href="article.css" />
+</head>
+<body>
+  <div class="announcement"><span>✦</span> <span data-i18n="announcement">Temuan bagus, dipilih dengan penuh perhatian.</span> <a href="reviews.html" data-i18n="announcementLink">Lihat rekomendasi →</a></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="GoOdays home">
+        <span class="brand-mark"><img src="assets/logo.png" alt="GoOdays logo" /></span>
+        <span>Go<span>O</span>days</span>
+      </a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="index.html" data-i18n="navHome">Home</a>
+        <a href="index.html#categories" data-i18n="navCategories">Categories</a>
+        <a class="active" href="index.html#articles" data-i18n="navArticles">Articles</a>
+        <a href="reviews.html" data-i18n="navReviews">Product Reviews</a>
+        <a href="index.html#about" data-i18n="navAbout">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-switch" data-lang="en" aria-label="Switch to English">EN</button>
+        <a class="button button-small button-orange" href="index.html#categories" data-i18n="explore">Explore finds</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <section class="article-hero">
+      <div class="container">
+        <a class="article-back-link" href="index.html#articles">← <span data-i18n="backToArticles">Back to articles</span></a>
+        <p class="eyebrow">GOODAYS / <span data-i18n="articleEyebrow">THE JOURNAL</span></p>
+        <div id="articleHeader" class="article-header-content">
+          <div class="article-loading" data-i18n="loading">Loading article...</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="article-layout container">
+      <aside class="article-sidebar">
+        <a class="back-home" href="index.html">← <span data-i18n="backHome">Back to home</span></a>
+        <div class="article-sidebar-note">
+          <span class="sidebar-note-label" data-i18n="sidebarLabel">GOOD TO KNOW</span>
+          <p data-i18n="sidebarText">Thoughtful guides for better everyday choices.</p>
+        </div>
+      </aside>
+
+      <article class="article-story" id="articleContent">
+        <div class="article-loading" data-i18n="loadingContent">Loading story...</div>
+      </article>
+    </section>
+
+    <section class="related-section section-pad" id="relatedSection" hidden>
+      <div class="container">
+        <div class="section-heading heading-inline">
+          <div>
+            <p class="eyebrow">GOODAYS / <span data-i18n="relatedEyebrow">KEEP EXPLORING</span></p>
+            <h2 data-i18n="relatedTitle">More good<br><em>things to read.</em></h2>
+          </div>
+          <a class="text-link" href="index.html#articles" data-i18n="allArticles">All articles <span>→</span></a>
+        </div>
+        <div class="related-grid" id="relatedGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <a class="brand brand-footer" href="index.html"><span class="brand-mark"><img src="assets/logo.png" alt="" /></span><span>Go<span>O</span>days</span></a>
+      <p data-i18n="footerText">Curated finds for everyday life.</p>
+      <div class="socials"><a href="https://instagram.com/oddychris" target="_blank" rel="noopener" aria-label="Instagram">ig</a><a href="https://www.tiktok.com/@thomasoddy" target="_blank" rel="noopener" aria-label="TikTok">tt</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 GoOdays. <span data-i18n="allRights">All rights reserved.</span></span><span data-i18n="madeWith">Made for better browsing.</span></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="article.js"></script>
+</body>
+</html>
