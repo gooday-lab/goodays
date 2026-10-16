@@ -1,0 +1,91 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getContent, localized } from '../../lib/content';
+
+const { categories, products } = await getContent();
+
+const stars = (rating: number | string | undefined) => {
+  const value = Math.max(0, Math.min(5, Number(rating) || 0));
+  const full = Math.floor(value);
+  const half = value - full >= 0.5;
+  return `<span class="rating-stars" aria-label="${value} out of 5 stars">${
+    Array.from({ length: 5 }, (_, i) =>
+      `<span class="rating-star ${i < full ? 'is-full' : i === full && half ? 'is-half' : 'is-empty'}" aria-hidden="true">★</span>`).join('')
+  }</span>`;
+};
+
+const top3 = products.slice().sort((a, b) => (Number(b.rating) || 0) - (Number(a.rating) || 0)).slice(0, 3);
+---
+<Base
+  title="Product Reviews — Rekomendasi & Review Jujur | GoOdays"
+  description="Review produk jujur dengan kelebihan, kekurangan, dan perbandingan. Temukan produk terbaik per kategori sebelum membeli di Shopee."
+  canonicalPath="/reviews/"
+  reviewsCss={true}
+>
+  <main class="reviews-page">
+    <section class="reviews-hero"><div class="container"><p class="eyebrow">GOODAYS / <span data-i18n="reviewEyebrow">PRODUCT REVIEWS</span></p><h1 data-i18n="pageTitle">Dicoba, diuji,<br><em>layak dibagikan.</em></h1><p data-i18n="pageIntro">Kelebihan yang jelas, kekurangan yang jujur, dan detail yang membantumu memilih dengan percaya diri.</p></div></section>
+
+    <section class="reviews-layout container">
+      <aside class="category-sidebar">
+        <div class="sidebar-title"><span data-i18n="browseBy">JELAJAHI DENGAN</span><span>↘</span></div>
+        <nav aria-label="Product categories">
+          <a class="category-link active" href="/reviews/"><span class="category-emoji">✦</span>Semua review</a>
+          {categories.map((category) => (
+            <a class="category-link" href={`/reviews/?category=${category.slug}`}>
+              <span class="category-emoji">{category.emoji || '•'}</span>{localized(category, 'name')}
+            </a>
+          ))}
+        </nav>
+        <a class="back-home" href="/">← <span data-i18n="backHome">Kembali ke home</span></a>
+      </aside>
+
+      <div class="review-content">
+        {top3.length >= 2 && (
+          <div class="compare-strip">
+            <p class="compare-title">3 TERBAIK DI KATEGORI INI</p>
+            <div class="compare-grid">
+              {top3.map((product, index) => (
+                <div class={`compare-card ${index === 0 ? 'compare-winner' : ''}`}>
+                  {index === 0 && <span class="compare-flag">PILIHAN KAMI</span>}
+                  <strong>{product.name}</strong>
+                  <span class="compare-rating" set:html={`${stars(product.rating)} ${product.rating ? `${product.rating} / 5` : ''}`} />
+                  <span class="compare-price">{product.price_text || '—'}</span>
+                  {product.affiliate_url
+                    ? <a class="button button-small button-shopee" data-aff={`compare-${index + 1}`} data-product={product.name} href={product.affiliate_url} target="_blank" rel="nofollow sponsored noopener">Cek harga <span>↗</span></a>
+                    : <a class="button button-small button-dark" href={`/reviews/${product.slug || product.id}/`}>Lihat review</a>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div class="review-toolbar">
+          <div><p class="eyebrow">SEMUA REVIEW</p><h2>Semua product reviews</h2></div>
+          <div class="review-controls">
+            <label class="sr-only" for="productSearch">Search products</label>
+            <input id="productSearch" type="search" placeholder="Cari nama produk atau brand...">
+            <span class="result-count">{products.length} produk</span>
+          </div>
+        </div>
+
+        <div class="product-list" id="productList">
+          {products.length === 0 && <div class="loading-state">Belum ada produk published. Tambahkan lewat dashboard Supabase.</div>}
+          {products.map((product) => (
+            <a class="product-row" href={`/reviews/${product.slug || product.id}/`}>
+              <span class="product-main">
+                <span class="product-row-title">{product.name}</span>
+                <span class="product-row-summary">{localized(product, 'summary')}</span>
+              </span>
+              <span class="product-meta">
+                <span class="product-price">{product.price_text || '—'}</span>
+                <span class="product-rating">★ {product.rating ? `${product.rating} / 5` : '—'}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <p class="disclosure-line">Beberapa link di halaman ini adalah link afiliasi Shopee — pembelian lewat link tersebut menghasilkan komisi untuk GoOdays tanpa biaya tambahan untukmu.</p>
+      </div>
+    </section>
+  </main>
+</Base>

@@ -1,0 +1,92 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  jsonLd?: object[];
+  reviewsCss?: boolean;
+}
+const { title, description, canonicalPath = '/', jsonLd = [], reviewsCss = false } = Astro.props;
+const canonical = `https://goodays.pages.dev${canonicalPath}`;
+---
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GoOdays" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content="https://goodays.pages.dev/assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#164a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  {reviewsCss && <link rel="stylesheet" href="/reviews.css" />}
+  {jsonLd.map((obj) => (
+    <script type="application/ld+json" set:html={JSON.stringify(obj)} />
+  ))}
+</head>
+<body>
+  <div class="announcement">
+    <span>✦</span>
+    <span class="announcement-rotator" data-i18n="announcement">Update terbaru: rekomendasi terbaik bulan ini sudah tayang.</span>
+    <a href="/#picks" data-i18n="announcementLink">Lihat Top Picks →</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="GoOdays home">
+        <span class="brand-mark"><img src="/assets/logo.png" alt="GoOdays logo" /></span>
+        <span>Go<span>O</span>days</span>
+      </a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="/#home" data-i18n="navHome">Home</a>
+        <a href="/#picks" data-i18n="navPicks">Top Picks</a>
+        <a href="/#categories" data-i18n="navCategories">Kategori</a>
+        <a href="/#articles" data-i18n="navArticles">Jurnal</a>
+        <a href="/reviews/" data-i18n="navReviews">Product Reviews</a>
+        <a href="/#about" data-i18n="navAbout">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-switch" data-lang="en" aria-label="Switch to English">EN</button>
+        <a class="button button-small button-orange" href="/#picks" data-i18n="explore">Lihat rekomendasi</a>
+      </div>
+    </div>
+  </header>
+
+  <slot />
+
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <a class="brand brand-footer" href="/"><span class="brand-mark"><img src="/assets/logo.png" alt="" /></span><span>Go<span>O</span>days</span></a>
+      <p data-i18n="footerText">Temuan pilihan untuk kehidupan sehari-hari.</p>
+      <div class="socials">
+        <a href="https://instagram.com/oddychris" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+        <a href="https://www.tiktok.com/@thomasoddy" target="_blank" rel="noopener" aria-label="TikTok">tt</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 GoOdays. <span data-i18n="allRights">Hak cipta dilindungi.</span></span>
+      <span data-i18n="madeWith">Dibuat untuk belanja yang lebih bijak.</span>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta" hidden>
+    <span data-i18n="stickyText">Siap pilih yang terbaik?</span>
+    <a href="/#picks" class="button button-small button-orange" data-aff="sticky" data-i18n="stickyCta">Lihat Top Picks</a>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="/js/i18n.js" is:inline></script>
+  <script src="/js/ui.js" is:inline></script>
+</body>
+</html>

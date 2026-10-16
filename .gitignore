@@ -1,3 +1,5 @@
 node_modules/
 .DS_Store
 *.log
+astro/dist/
+astro/src/data/content-cache.json

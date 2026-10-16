@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+const items = [
+  ['Butuh, atau cuma kepingin?', 'Tunggu 24 jam. Kalau besoknya masih terus terpikir, berarti memang butuh. Kalau hilang, hemat uangmu.'],
+  ['Cek rating di bawah 4 bintang — bacanya yang 3 bintang', 'Ulasan 5 bintang penuh pujian, 1 bintang penuh emosi. Yang paling jujur biasanya di tengah.'],
+  ['Baca ulasan dengan foto/video pembeli', 'Foto asli dari pembeli menunjukkan kualitas sebenarnya — bukan foto katalog yang sudah diedit.'],
+  ['Cari keluhan yang berulang', 'Satu keluhan bisa jadi nasib sial. Keluhan yang sama muncul 5 kali? Itu pola — dan itu kelemahan aslinya.'],
+  ['Bandingkan minimal 3 alternatif', 'Jangan jatuh cinta ke produk pertama. Bandingkan harga, spesifikasi, dan rating dari tiga pesaing sekelas.'],
+  ['Hitung harga per penggunaan', 'Rp300 rb yang dipakai 300 kali = Rp1.000 per pemakaian. Seringkali yang "mahal" justru lebih murah jangka panjang.'],
+  ['Cek garansi & kebijakan retur', 'Terutama untuk elektronik. Garansi resmi toko atau distributor? Berapa lama? Simpan bukti transaksimu.'],
+  ['Perhatikan ongkir & total akhir', 'Harga murah bisa berubah mahal di halaman pembayaran. Selalu cek total yang benar-benar dibayar.'],
+  ['Waspada diskon palsu', 'Harga coret tinggi lalu "diskon 70%" sering cuma trik. Cek riwayat harga atau bandingkan dengan toko lain.'],
+  ['Beli karena kualitas, bukan karena lapar mata flash sale', 'Flash sale didesain untuk panik. Kalau tidak ada di rencanamu sebelumnya, lewati saja — besok masih ada barang bagus.']
+];
+---
+<Base
+  title="Checklist Beli Bijak — 10 Poin Sebelum Checkout | GoOdays"
+  description="Checklist gratis dari GoOdays: 10 poin yang wajib dicek sebelum membeli produk apa pun. Cetak atau simpan — supaya tidak menyesal setelah unboxing."
+  canonicalPath="/checklist-beli-bijak/"
+>
+  <main class="checklist-page">
+    <section class="checklist-hero">
+      <div class="container">
+        <p class="eyebrow light">GOODAYS / CHECKLIST GRATIS</p>
+        <h1>Checklist <em>Beli Bijak</em><br>10 poin sebelum checkout.</h1>
+        <p>Sebelum klik "beli", cek 10 hal ini. Butuh 3 menit — dan menyelamatkanmu dari penyesalan setelah unboxing. Simpan halaman ini atau cetak (Ctrl+P).</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="checklist-items">
+        {items.map(([title, text], index) => (
+          <div class="check-item">
+            <span class="check-num">{index + 1}</span>
+            <div><h3>{title}</h3><p>{text}</p></div>
+          </div>
+        ))}
+      </div>
+
+      <div class="newsletter" style="margin-top:56px;border-radius:22px;padding:46px 0;">
+        <div class="container newsletter-inner">
+          <div>
+            <p class="eyebrow light">THE GOOD LIST</p>
+            <h2>Mau rekomendasi yang<br><em>sudah dikurasi?</em></h2>
+            <p>Top picks bulanan, harga yang lagi bagus, dan tips belanja bijak. Tanpa spam.</p>
+          </div>
+          <div class="newsletter-form">
+            <a href="/#picks" class="button button-cream">Lihat Top Picks <span>→</span></a>
+            <a href="/reviews/" class="button button-cream">Jelajahi Review <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

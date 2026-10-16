@@ -1,0 +1,156 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getContent, localized } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const { products } = await getContent();
+  return products
+    .filter((product) => product.slug || product.id)
+    .map((product) => ({
+      params: { slug: String(product.slug || product.id) },
+      props: { product }
+    }));
+}
+
+const { product } = Astro.props;
+const { products, categories } = await getContent();
+
+const name = product.name;
+const summary = localized(product, 'summary');
+const description = localized(product, 'description') || summary;
+const pros: string[] = product.pros?.id || product.pros?.en || [];
+const cons: string[] = product.cons?.id || product.cons?.en || [];
+const rating = Number(product.rating) || undefined;
+const category = categories.find((c) => c.id === product.category_id);
+const related = products.filter((p) => p.id !== product.id && p.category_id === product.category_id).slice(0, 3);
+const buyUrl = product.affiliate_url || '';
+const updated = new Date().toISOString().slice(0, 10);
+
+const stars = (value: number | undefined) => {
+  const v = Math.max(0, Math.min(5, Number(value) || 0));
+  const full = Math.floor(v);
+  const half = v - full >= 0.5;
+  return `<span class="rating-stars" aria-label="${v} out of 5 stars">${
+    Array.from({ length: 5 }, (_, i) =>
+      `<span class="rating-star ${i < full ? 'is-full' : i === full && half ? 'is-half' : 'is-empty'}" aria-hidden="true">★</span>`).join('')
+  }</span>`;
+};
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    description: summary,
+    ...(product.image_url ? { image: product.image_url } : {}),
+    ...(rating ? {
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: rating, bestRating: 5, worstRating: 1, reviewCount: 1 },
+      review: {
+        '@type': 'Review',
+        name: `Review ${name} — GoOdays`,
+        reviewBody: description,
+        reviewRating: { '@type': 'Rating', ratingValue: rating, bestRating: 5, worstRating: 1 },
+        author: { '@type': 'Organization', name: 'GoOdays' },
+        publisher: { '@type': 'Organization', name: 'GoOdays' }
+      }
+    } : {})
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://goodays.pages.dev/' },
+      { '@type': 'ListItem', position: 2, name: 'Product Reviews', item: 'https://goodays.pages.dev/reviews/' },
+      { '@type': 'ListItem', position: 3, name, item: `https://goodays.pages.dev/reviews/${Astro.params.slug}/` }
+    ]
+  }
+];
+---
+<Base
+  title={`Review ${name} — Jujur, Ada Kelebihan & Kekurangan | GoOdays`}
+  description={`${summary || `Review jujur ${name}.`} Kelebihan, kekurangan, dan apakah produk ini worth it dibeli di Shopee.`}
+  canonicalPath={`/reviews/${Astro.params.slug}/`}
+  reviewsCss={true}
+  jsonLd={jsonLd}
+>
+  <main class="reviews-page">
+    <section class="reviews-hero"><div class="container">
+      <p class="eyebrow"><a href="/reviews/">← SEMUA REVIEW</a>{category ? ` / ${localized(category, 'name')}` : ''}</p>
+      <h1>{name}</h1>
+      <p>{summary}</p>
+    </div></section>
+
+    <section class="reviews-layout container">
+      <aside class="category-sidebar">
+        <div class="sidebar-title"><span>PRODUK LAIN</span><span>↘</span></div>
+        <nav aria-label="Related products">
+          {related.map((item) => (
+            <a class="category-link" href={`/reviews/${item.slug || item.id}/`}>
+              <span class="category-emoji">★</span>{item.name}
+            </a>
+          ))}
+        </nav>
+        <a class="back-home" href="/reviews/">← Semua review</a>
+      </aside>
+
+      <div class="review-content">
+        <article class="detail-grid">
+          <div>
+            {product.image_url
+              ? <img src={product.image_url} alt={name} style="width:100%;border-radius:18px;display:block;" />
+              : <div class="review-visual visual-headphones" style="border-radius:18px;height:320px;font-size:90px;color:var(--green);">✦</div>}
+          </div>
+          <div class="detail-copy">
+            <h2>{name}</h2>
+            <div class="detail-meta">
+              <span class="detail-rating" set:html={`${stars(rating)} <span class="rating-text">${rating ? `${rating} / 5` : ''}</span>`} />
+              <span class="detail-price">{product.price_text || '—'}</span>
+            </div>
+            <div class="detail-summary"><p>{description}</p></div>
+            {buyUrl ? (
+              <a class="button button-orange" data-aff="review-detail" data-product={name} href={buyUrl} target="_blank" rel="nofollow sponsored noopener">Cek harga di Shopee <span>↗</span></a>
+            ) : (
+              <a class="button button-orange affiliate-link" href="#" data-product={name}>Cek harga di Shopee <span>↗</span></a>
+            )}
+            <p class="price-note">Harga &amp; stok bisa berubah kapan saja — selalu cek harga terkini di Shopee. Terakhir diperbarui: {updated}.</p>
+            <div class="detail-columns">
+              <div class="detail-pros">
+                <h4>Kelebihan</h4>
+                <ul>{pros.map((item) => <li>{item}</li>)}</ul>
+              </div>
+              <div class="detail-cons">
+                <h4>Kekurangan</h4>
+                <ul>{cons.map((item) => <li>{item}</li>)}</ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {related.length > 0 && (
+          <div class="compare-strip" style="margin-top:34px">
+            <p class="compare-title">BANDINGKAN DENGAN ALTERNATIF LAIN</p>
+            <div class="compare-grid">
+              {related.map((item, index) => (
+                <div class="compare-card">
+                  <strong>{item.name}</strong>
+                  <span class="compare-rating" set:html={`${stars(Number(item.rating))} ${item.rating ? `${item.rating} / 5` : ''}`} />
+                  <span class="compare-price">{item.price_text || '—'}</span>
+                  <a class="button button-small button-dark" href={`/reviews/${item.slug || item.id}/`}>Lihat review</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <p class="disclosure-line">Beberapa link di halaman ini adalah link afiliasi Shopee — pembelian lewat link tersebut menghasilkan komisi untuk GoOdays tanpa biaya tambahan untukmu.</p>
+      </div>
+    </section>
+  </main>
+
+  {buyUrl && (
+    <div class="sticky-cta review-sticky" id="stickyCta">
+      <span>{name}</span>
+      <a class="button button-small button-shopee" data-aff="sticky-detail" data-product={name} href={buyUrl} target="_blank" rel="nofollow sponsored noopener">Cek harga <span>↗</span></a>
+    </div>
+  )}
+</Base>

@@ -45,16 +45,16 @@ window.GOODAYS_PICKS = [
   {
     id: 'best-overall',
     badge: { id: 'Best Overall', en: 'Best Overall' },
-    name: 'Contoh: Produk Terbaik Secara Keseluruhan',
-    rating: 4.8,
-    price: 'Rp500–700 rb',
+    name: 'Anker Soundcore Q20i — TWS ANC terbaik di bawah Rp500 rb',
+    rating: null, // ← isi setelah risetmu (jangan karang angka)
+    price: '±Rp450–550 rb (cek terbaru)',
     verdict: {
-      id: 'Produk yang paling seimbang — kualitas, fitur, dan harga dalam satu paket.',
-      en: 'The most balanced pick — quality, features and price in one package.'
+      id: 'Contoh kurasi: TWS dengan ANC yang benar-benar terasa di kelas harganya — paling seimbang untuk dipakai harian.',
+      en: 'Curation example: TWS with genuinely effective ANC for the money — the most balanced pick for daily use.'
     },
     pros: {
-      id: ['Kualitas terbaik di kelasnya', 'Tahan lama', 'Paling banyak direkomendasikan'],
-      en: ['Best build quality in class', 'Built to last', 'Most recommended by buyers']
+      id: ['ANC terasa di kelasnya', 'Baterai ~40 jam', 'Banyak ulasan pembeli positif'],
+      en: ['Effective ANC for the price', '~40h battery', 'Lots of positive buyer reviews']
     },
     shopeeUrl: '', // ← TEMPET LINK AFILIASI SHOPEE DI SINI
     reviewUrl: 'reviews.html'
@@ -62,16 +62,16 @@ window.GOODAYS_PICKS = [
   {
     id: 'best-budget',
     badge: { id: 'Best Budget', en: 'Best Budget' },
-    name: 'Contoh: Produk Terbaik dengan Budget Minim',
-    rating: 4.6,
-    price: 'Rp100–250 rb',
+    name: 'V60 Dripper Set + Grinder Manual Entry — ritual kopi di bawah Rp300 rb',
+    rating: null, // ← isi setelah risetmu
+    price: '±Rp150–300 rb (cek terbaru)',
     verdict: {
-      id: 'Harga paling masuk akal tanpa mengorbankan hal-hal penting.',
-      en: 'The smartest spend — saves money without cutting the essentials.'
+      id: 'Contoh kurasi: cara termurah naik level dari kopi sachet — hasilnya jauh lebih enak, alatnya tahan bertahun-tahun.',
+      en: 'Curation example: the cheapest upgrade from instant coffee — far better taste, tools last for years.'
     },
     pros: {
-      id: ['Harga paling bersahabat', 'Fitur inti lengkap', 'Value terbaik'],
-      en: ['Friendliest price', 'All essential features', 'Best value for money']
+      id: ['Harga paling bersahabat', 'Hasil jauh lebih baik dari kopi sachet', 'Tahan lama'],
+      en: ['Friendliest price', 'Far better than instant coffee', 'Built to last']
     },
     shopeeUrl: '', // ← TEMPET LINK AFILIASI SHOPEE DI SINI
     reviewUrl: 'reviews.html'
@@ -79,16 +79,16 @@ window.GOODAYS_PICKS = [
   {
     id: 'best-premium',
     badge: { id: 'Best Premium', en: 'Best Premium' },
-    name: 'Contoh: Produk Premium Terbaik',
-    rating: 4.9,
-    price: 'Rp1 jt+',
+    name: 'Monitor 27" 144Hz IPS — upgrade terbaik untuk kerja & gaming',
+    rating: null, // ← isi setelah risetmu
+    price: '±Rp2–3 jt (cek terbaru)',
     verdict: {
-      id: 'Kalau budget bukan masalah, ini yang terbaik — dan tahan paling lama.',
-      en: 'If budget is no issue, this is the best — and it lasts the longest.'
+      id: 'Contoh kurasi: upgrade yang paling terasa setiap hari — sekali beli, dipakai 5–7 tahun.',
+      en: 'Curation example: the upgrade you feel every single day — bought once, used 5–7 years.'
     },
     pros: {
-      id: ['Kualitas premium', 'Pengalaman pakai terbaik', 'Worth it jangka panjang'],
-      en: ['Premium quality', 'Best user experience', 'Worth it long term']
+      id: ['Upgrade paling terasa', 'Awet 5–7 tahun', 'Worth it jangka panjang'],
+      en: ['Most noticeable upgrade', 'Lasts 5–7 years', 'Worth it long term']
     },
     shopeeUrl: '', // ← TEMPET LINK AFILIASI SHOPEE DI SINI
     reviewUrl: 'reviews.html'
