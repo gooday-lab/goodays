@@ -108,3 +108,23 @@
   .faq-item summary{font-size:14.5px}
   .sticky-cta{font-size:11px;padding-left:16px}
 }
+
+/* ===== PHASE 3 — DEALS PAGE ===== */
+.deals-hero{background:var(--cream);padding-bottom:40px}
+.deals-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(46px,5.6vw,80px);letter-spacing:-.065em;line-height:.97;color:var(--green);margin:0}
+.deals-hero h1 em{font-family:Georgia,serif;font-weight:400;color:var(--orange)}
+.deal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.deal-card{position:relative;display:flex;flex-direction:column;background:var(--pick-bg);border:1px solid #e4e0d4;border-radius:22px;padding:26px 24px;transition:.25s}
+.deal-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(22,74,58,.16)}
+.deal-card.is-featured{border:2px solid var(--orange);box-shadow:0 20px 44px rgba(255,107,53,.18)}
+.deal-chip{position:absolute;top:16px;right:16px;border-radius:100px;background:var(--green);color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;padding:7px 11px}
+.deal-chip.is-urgent{background:var(--shopee);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.72}}
+.deal-cat{font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--orange)}
+.deal-title{font-family:'Space Grotesk',sans-serif;font-size:20px;line-height:1.15;letter-spacing:-.04em;color:var(--green);margin:10px 0 12px;max-width:85%}
+.deal-prices{display:grid;gap:4px;margin-bottom:13px}
+.deal-old{font-size:11px;color:#8a9289}
+.deal-new{font-family:'Space Grotesk',sans-serif;font-size:26px;letter-spacing:-.04em;color:var(--shopee)}
+.deal-verdict{font-size:13px;color:#5f6a61;line-height:1.55;margin:0 0 20px}
+.deal-card .button{margin-top:auto;width:100%}
+@media(max-width:700px){.deal-grid{grid-template-columns:1fr}.deal-title{font-size:18px}}
