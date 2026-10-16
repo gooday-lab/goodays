@@ -194,7 +194,7 @@ const jsonLd = [
                 <p class="article-kicker">{index === 0 ? 'ARTIKEL PILIHAN' : 'ARTIKEL BARU'}</p>
                 <h3>{localized(article, 'title')}</h3>
                 <p>{localized(article, 'excerpt')}</p>
-                <a href={`/articles/${article.slug}/`} class="text-link">Baca artikel <span>↗</span></a>
+                <a href={`/article.html?slug=${article.slug}`} class="text-link">Baca artikel <span>↗</span></a>
               </div>
             </article>
           ))}
