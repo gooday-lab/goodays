@@ -56,7 +56,7 @@ window.GOODAYS_PICKS = [
       id: ['ANC terasa di kelasnya', 'Baterai ~40 jam', 'Banyak ulasan pembeli positif'],
       en: ['Effective ANC for the price', '~40h battery', 'Lots of positive buyer reviews']
     },
-    shopeeUrl: '', // ← TEMPET LINK AFILIASI SHOPEE DI SINI
+    shopeeUrl: 'https://s.shopee.co.id/2LZ7p1FHLm', // ← LINK AFILIASI TERPASANG (konfirmasi: ini produk best-overall?)
     reviewUrl: 'reviews.html'
   },
   {
@@ -73,7 +73,7 @@ window.GOODAYS_PICKS = [
       id: ['Harga paling bersahabat', 'Hasil jauh lebih baik dari kopi sachet', 'Tahan lama'],
       en: ['Friendliest price', 'Far better than instant coffee', 'Built to last']
     },
-    shopeeUrl: '', // ← TEMPET LINK AFILIASI SHOPEE DI SINI
+    shopeeUrl: 'https://s.shopee.co.id/70KxNcVPgg', // ← LINK AFILIASI TERPASANG (konfirmasi: ini produk best-budget?)
     reviewUrl: 'reviews.html'
   },
   {
@@ -90,7 +90,7 @@ window.GOODAYS_PICKS = [
       id: ['Upgrade paling terasa', 'Awet 5–7 tahun', 'Worth it jangka panjang'],
       en: ['Most noticeable upgrade', 'Lasts 5–7 years', 'Worth it long term']
     },
-    shopeeUrl: '', // ← TEMPET LINK AFILIASI SHOPEE DI SINI
+    shopeeUrl: 'https://s.shopee.co.id/7faeAuV2bT', // ← LINK AFILIASI TERPASANG (konfirmasi: ini produk best-premium?)
     reviewUrl: 'reviews.html'
   }
 ];

@@ -22,7 +22,7 @@ window.GOODAYS_DEALS = [
       id: 'Harga terbaik 30 hari terakhir — cocok kalau sudah nunggu lama.',
       en: 'Best price in the last 30 days — good pick if you have been waiting.'
     },
-    shopeeUrl: '' // ← TEMPET LINK AFILIASI SHOPEE DI SINI
+    shopeeUrl: 'https://s.shopee.co.id/1LgadKegDJ' // ← LINK AFILIASI TERPASANG (konfirmasi produk)
   },
   {
     id: 'deal-2',
@@ -35,7 +35,7 @@ window.GOODAYS_DEALS = [
       id: 'Bundle yang benar-benar berguna — bukan bundling barang nganggur.',
       en: 'A bundle that is actually useful — not filler items.'
     },
-    shopeeUrl: ''
+    shopeeUrl: 'https://s.shopee.co.id/2gByDnzfQC' // ← LINK AFILIASI TERPASANG (konfirmasi produk)
   },
   {
     id: 'deal-3',
