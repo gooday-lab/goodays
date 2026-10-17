@@ -1,54 +1,77 @@
 /* ============================================================
-   GoOdays — Deals configuration (Phase 3)
+   GoOdays — Deals configuration (Phase 3.1)
    ------------------------------------------------------------
-   ISI FILE INI dengan deal/murah yang sedang berjalan.
-   Setiap deal butuh: judul, kategori, harga coret + harga baru,
-   tanggal berakhir (untuk countdown), dan link afiliasi Shopee.
+   ISI FILE INI dengan deal yang sedang berjalan.
 
-   Catatan jujur: hanya masukkan deal yang BENAR-BENAR lebih murah
-   dari harga normal. Countdown memakai `validUntil` — kalau lewat,
-   deal otomatis disembunyikan. Jangan perpanjang diskon palsu.
+   ATURAN HARGA (penting — jangan dilewati):
+   - Harga HANYA ditampilkan kalau kamu isi sendiri dan benar-benar
+     terverifikasi (cek di halaman produk Shopee saat ini).
+   - `oldPrice` (harga coret) WAJIB benar-benar harga normal sebelum
+     diskon. Kalau tidak yakin, KOSONGKAN — kartu tetap tampil tanpa
+     harga coret.
+   - Cara paling akurat & otomatis: pakai WIDGET resmi Shopee.
+     Di portal affiliate → menu "Alat/Tools" → pilih produk →
+     "Widget Produk" / "Product Widget" → copy kode embed →
+     tempel di field `widgetEmbed`. Harga & gambar akan update
+     otomatis dari Shopee, dan tetap terhitung komisi afiliasimu.
+
+   FIELD:
+     title      : nama produk yang ditampilkan
+     category   : label kecil (tech / gadgets / coffee / home / gaming)
+     priceText  : harga saat ini, mis. "Rp449.000" (opsional)
+     oldPrice   : harga normal sebelum diskon (opsional — hanya jika yakin)
+     validUntil : "YYYY-MM-DD" — deal hilang otomatis setelah tanggal ini
+     verdict    : 1 kalimat kenapa ini layak (tanpa klaim berlebihan)
+     shopeeUrl  : LINK AFILIASI (wajib — deal tanpa link tidak ditampilkan)
+     widgetEmbed: kode embed widget resmi Shopee (opsional, pengganti harga manual)
+
+   MENAMBAH PRODUK BARU:
+   Copy salah satu blok { ... }, ubah isinya, simpan. Selesai —
+   kartu otomatis muncul di halaman Deals.
    ============================================================ */
 
 window.GOODAYS_DEALS = [
   {
     id: 'deal-1',
-    title: 'Contoh: TWS ANC Diskon Payday',
+    title: 'Produk pilihan minggu ini #1', // ← GANTI dengan nama produk asli dari link
     category: 'gadgets',
-    oldPrice: 'Rp599.000',
-    newPrice: 'Rp449.000',
-    validUntil: '2026-12-31', // format YYYY-MM-DD — deal disembunyikan setelah tanggal ini
+    priceText: '',      // ← isi harga saat ini (cek di Shopee dulu)
+    oldPrice: '',       // ← isi HANYA jika harga coret benar-benar akurat
+    validUntil: '2026-12-31',
     verdict: {
-      id: 'Harga terbaik 30 hari terakhir — cocok kalau sudah nunggu lama.',
-      en: 'Best price in the last 30 days — good pick if you have been waiting.'
+      id: 'Salah satu pilihan terbaik minggu ini — cek harganya sebelum kehabisan.',
+      en: 'One of the best picks this week — check the price before it runs out.'
     },
-    shopeeUrl: 'https://s.shopee.co.id/1LgadKegDJ' // ← LINK AFILIASI TERPASANG (konfirmasi produk)
+    shopeeUrl: 'https://s.shopee.co.id/1LgadKegDJ', // ← LINK AFILIASI TERPASANG (konfirmasi produk)
+    widgetEmbed: '' // ← opsional: tempel kode widget resmi Shopee di sini untuk harga live
   },
   {
     id: 'deal-2',
-    title: 'Contoh: Grinder Kopi Manual Bundle',
+    title: 'Produk pilihan minggu ini #2', // ← GANTI dengan nama produk asli dari link
     category: 'coffee',
-    oldPrice: 'Rp329.000',
-    newPrice: 'Rp249.000',
+    priceText: '',
+    oldPrice: '',
     validUntil: '2026-12-31',
     verdict: {
-      id: 'Bundle yang benar-benar berguna — bukan bundling barang nganggur.',
-      en: 'A bundle that is actually useful — not filler items.'
+      id: 'Masuk daftar karena harganya saat ini layak — cek detailnya di Shopee.',
+      en: 'On the list because the current price makes sense — see details on Shopee.'
     },
-    shopeeUrl: 'https://s.shopee.co.id/2gByDnzfQC' // ← LINK AFILIASI TERPASANG (konfirmasi produk)
+    shopeeUrl: 'https://s.shopee.co.id/2gByDnzfQC', // ← LINK AFILIASI TERPASANG (konfirmasi produk)
+    widgetEmbed: ''
   },
   {
     id: 'deal-3',
-    title: 'Contoh: Monitor 27" 144Hz Flash Sale',
+    title: 'Produk pilihan minggu ini #3',
     category: 'tech',
-    oldPrice: 'Rp2.799.000',
-    newPrice: 'Rp2.299.000',
+    priceText: '',
+    oldPrice: '',
     validUntil: '2026-12-31',
     verdict: {
-      id: 'Turun Rp500 rb dari harga normal — worth it kalau memang butuh monitor.',
-      en: 'Rp500k below normal price — worth it if you actually need a monitor.'
+      id: 'Pilihan ketiga minggu ini — link afiliasi menyusul.',
+      en: 'Third pick this week — affiliate link coming soon.'
     },
-    shopeeUrl: ''
+    shopeeUrl: '', // ← belum ada link — kartu ini otomatis disembunyikan sampai diisi
+    widgetEmbed: ''
   }
 ];
 
@@ -64,15 +87,13 @@ window.GOODAYS_DEALS = [
       endsIn: 'Berakhir',
       days: 'hari',
       today: 'Hari ini',
-      expired: 'Berakhir',
       was: 'Harga normal',
-      now: 'Harga sekarang',
       checkPrice: 'Cek harga di Shopee <span>↗</span>',
       empty: 'Belum ada deal aktif minggu ini. Cek lagi besok — atau lihat Top Picks kami.',
       picksLink: 'Lihat Top Picks <span>→</span>',
-      note: 'Harga & stok bisa berubah kapan saja. Deal yang sudah berakhir otomatis disembunyikan. Pembelian lewat link di atas membantu GoOdays — tanpa biaya tambahan untukmu.',
+      note: 'Harga & stok bisa berubah kapan saja. Setiap pembelian lewat link di atas membantu GoOdays — tanpa biaya tambahan untukmu.',
       howTitle: 'Cara kami memilih deal',
-      how1: 'Harga dicek terhadap harga normal 30 hari terakhir',
+      how1: 'Harga dicek terhadap harga normal sebelumnya',
       how2: 'Produknya tetap harus layak — diskon besar tidak menyelamatkan produk jelek',
       how3: 'Tanggal berakhir jelas — kalau tidak ada, kami tidak tampilkan'
     },
@@ -83,24 +104,22 @@ window.GOODAYS_DEALS = [
       endsIn: 'Ends in',
       days: 'days',
       today: 'Today',
-      expired: 'Ended',
       was: 'Regular price',
-      now: 'Price now',
       checkPrice: 'Check price on Shopee <span>↗</span>',
       empty: 'No active deals this week. Check back tomorrow — or see our Top Picks.',
       picksLink: 'See Top Picks <span>→</span>',
-      note: 'Prices & stock can change anytime. Ended deals are hidden automatically. Purchases through the links above keep GoOdays running — at no extra cost to you.',
+      note: 'Prices & stock can change anytime. Purchases through the links above keep GoOdays running — at no extra cost to you.',
       howTitle: 'How we pick deals',
-      how1: 'Price checked against the regular price of the last 30 days',
+      how1: 'Price checked against the previous regular price',
       how2: 'The product still has to be worth it — a big discount does not save a bad product',
       how3: 'Clear end date — if there is none, we do not list it'
     }
   };
 
   function daysLeft(dateString) {
+    if (!dateString) return 999;
     const end = new Date(dateString + 'T23:59:59');
-    const diff = Math.ceil((end - new Date()) / 86400000);
-    return diff;
+    return Math.ceil((end - new Date()) / 86400000);
   }
 
   function buildUrl(raw) {
@@ -108,49 +127,75 @@ window.GOODAYS_DEALS = [
     return raw || '';
   }
 
+  function escapeHtml(value) {
+    return String(value == null ? '' : value).replace(/[&<>'"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;' }[c]));
+  }
+
+  /** Widget resmi Shopee kadang memakai <script> — innerHTML tidak
+      mengeksekusinya, jadi script dibuat ulang secara manual. */
+  function activateScripts(container) {
+    container.querySelectorAll('script').forEach((old) => {
+      const s = document.createElement('script');
+      Array.from(old.attributes).forEach((attr) => s.setAttribute(attr.name, attr.value));
+      s.textContent = old.textContent;
+      old.parentNode.replaceChild(s, old);
+    });
+  }
+
   function renderDeals(lang) {
     const grid = document.getElementById('dealGrid');
     if (!grid) return;
     const copy = t[lang] || t.id;
-    const deals = (window.GOODAYS_DEALS || []).filter((deal) => daysLeft(deal.validUntil) > 0);
+    const deals = (window.GOODAYS_DEALS || [])
+      .filter((deal) => deal.shopeeUrl || deal.widgetEmbed)      // tanpa link = tidak ditampilkan
+      .filter((deal) => daysLeft(deal.validUntil) > 0);           // kadaluarsa = disembunyikan
+
     if (!deals.length) {
       grid.innerHTML = `<div class="home-reviews-empty">${copy.empty} <a class="text-link" href="/#picks">${copy.picksLink}</a></div>`;
       return;
     }
-    grid.innerHTML = deals.map((deal, index) => {
+
+    grid.innerHTML = deals.map((deal) => {
       const left = daysLeft(deal.validUntil);
       const url = buildUrl(deal.shopeeUrl);
       const verdict = (deal.verdict && (deal.verdict[lang] || deal.verdict.en)) || '';
       const chip = left <= 1 ? copy.today : `${copy.endsIn} ${left} ${copy.days}`;
-      return `<article class="deal-card ${index === 0 ? 'is-featured' : ''}">
+      const priceRow = deal.oldPrice
+        ? `<div class="deal-prices"><span class="deal-old">${copy.was}: <s>${escapeHtml(deal.oldPrice)}</s></span>${deal.priceText ? `<strong class="deal-new">${escapeHtml(deal.priceText)}</strong>` : ''}</div>`
+        : (deal.priceText ? `<div class="deal-prices"><strong class="deal-new">${escapeHtml(deal.priceText)}</strong></div>` : '');
+      const widget = deal.widgetEmbed
+        ? `<div class="deal-widget">${deal.widgetEmbed}</div>`
+        : `<a class="button button-shopee affiliate-link" data-aff="deal-${escapeHtml(deal.id)}" data-product="${escapeHtml(deal.title)}"${url ? ` href="${escapeHtml(url)}" target="_blank" rel="nofollow sponsored noopener"` : ' href="#"'}>${copy.checkPrice}</a>`;
+      return `<article class="deal-card">
         <span class="deal-chip ${left <= 2 ? 'is-urgent' : ''}">⏳ ${chip}</span>
-        <span class="deal-cat">${deal.category || ''}</span>
-        <h3 class="deal-title">${deal.title}</h3>
-        <div class="deal-prices"><span class="deal-old">${copy.was}: <s>${deal.oldPrice || ''}</s></span><strong class="deal-new">${deal.newPrice || ''}</strong></div>
-        <p class="deal-verdict">${verdict}</p>
-        <a class="button button-shopee affiliate-link" data-aff="deal-${deal.id}" data-product="${deal.title}"${url ? ` href="${url}" target="_blank" rel="nofollow sponsored noopener"` : ' href="#"'}>${copy.checkPrice}</a>
+        <span class="deal-cat">${escapeHtml(deal.category || '')}</span>
+        <h3 class="deal-title">${escapeHtml(deal.title)}</h3>
+        ${priceRow}
+        <p class="deal-verdict">${escapeHtml(verdict)}</p>
+        ${widget}
       </article>`;
     }).join('');
+
+    activateScripts(grid);
   }
 
   window.renderDeals = renderDeals;
 
-  function initDeals() {
-    const lang = (localStorage.getItem('goodays_lang') || 'id');
-    // copy for static blocks
+  function applyCopy(lang) {
     document.querySelectorAll('[data-deals-copy]').forEach((el) => {
       const value = (t[lang] || t.id)[el.dataset.dealsCopy];
       if (value !== undefined) el.innerHTML = value;
     });
+  }
+
+  function initDeals() {
+    const lang = localStorage.getItem('goodays_lang') || 'id';
+    applyCopy(lang);
     renderDeals(lang);
-    // re-render on language switch
     document.querySelectorAll('.lang-switch').forEach((btn) => btn.addEventListener('click', () => {
       setTimeout(() => {
         const nextLang = localStorage.getItem('goodays_lang') || 'id';
-        document.querySelectorAll('[data-deals-copy]').forEach((el) => {
-          const value = (t[nextLang] || t.id)[el.dataset.dealsCopy];
-          if (value !== undefined) el.innerHTML = value;
-        });
+        applyCopy(nextLang);
         renderDeals(nextLang);
       }, 30);
     }));

@@ -160,3 +160,8 @@
 .panduan-card p{font-size:13px;color:#6c756d;margin:0;line-height:1.6}
 .panduan-card .go{margin-top:auto;font-size:12px;font-weight:800;color:var(--orange)}
 @media(max-width:700px){.panduan-grid{grid-template-columns:1fr}.article-body{padding:32px 20px 70px}}
+
+/* ===== DEALS v2 — widget mode & price rules ===== */
+.deal-widget{margin-top:6px;border-radius:14px;overflow:hidden;background:#fff}
+.deal-widget iframe{max-width:100%;border:0}
+.deal-card .deal-old s{opacity:.75}
