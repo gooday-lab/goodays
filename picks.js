@@ -44,51 +44,51 @@ window.GOODAYS_AFFILIATE = {
 window.GOODAYS_PICKS = [
   {
     id: 'best-overall',
-    badge: { id: 'Best Overall', en: 'Best Overall' },
-    name: 'Anker Soundcore Q20i — TWS ANC terbaik di bawah Rp500 rb',
+    badge: { id: 'PILIHAN UTAMA', en: 'TOP PICK' },
+    name: 'Osmo Pocket 3 — gimbal kamera saku 4K untuk vlog',
     rating: null, // ← isi setelah risetmu (jangan karang angka)
-    price: '±Rp450–550 rb (cek terbaru)',
+    price: '', // ← isi harga saat ini setelah cek di Shopee
     verdict: {
-      id: 'Contoh kurasi: TWS dengan ANC yang benar-benar terasa di kelas harganya — paling seimbang untuk dipakai harian.',
-      en: 'Curation example: TWS with genuinely effective ANC for the money — the most balanced pick for daily use.'
+      id: 'Gimbal kamera saku dengan layar yang bisa diputar — banyak dipakai vlogger karena hasilnya stabil dan praktis dibawa.',
+      en: 'A pocket gimbal camera with a rotating screen — popular with vloggers for its stabilization and portability.'
     },
     pros: {
-      id: ['ANC terasa di kelasnya', 'Baterai ~40 jam', 'Banyak ulasan pembeli positif'],
-      en: ['Effective ANC for the price', '~40h battery', 'Lots of positive buyer reviews']
+      id: ['Layar 2 inci yang bisa diputar', 'Video 4K dengan stabilisasi gimbal', 'Ringkas — muat di saku'],
+      en: ['2-inch rotating screen', '4K video with gimbal stabilization', 'Pocket-sized portability']
     },
-    shopeeUrl: 'https://s.shopee.co.id/2LZ7p1FHLm', // ← LINK AFILIASI TERPASANG (konfirmasi: ini produk best-overall?)
+    shopeeUrl: 'https://s.shopee.co.id/2LZ7p1FHLm',
     reviewUrl: 'reviews.html'
   },
   {
     id: 'best-budget',
-    badge: { id: 'Best Budget', en: 'Best Budget' },
-    name: 'V60 Dripper Set + Grinder Manual Entry — ritual kopi di bawah Rp300 rb',
+    badge: { id: 'AKSESORIS SHOOTING', en: 'SHOOTING ADD-ON' },
+    name: 'GOOJODOQ Kipas Tangan 2500 mAh untuk shooting outdoor',
     rating: null, // ← isi setelah risetmu
-    price: '±Rp150–300 rb (cek terbaru)',
+    price: '',
     verdict: {
-      id: 'Contoh kurasi: cara termurah naik level dari kopi sachet — hasilnya jauh lebih enak, alatnya tahan bertahun-tahun.',
-      en: 'Curation example: the cheapest upgrade from instant coffee — far better taste, tools last for years.'
+      id: 'Aksesoris kecil yang berguna saat merekam di luar ruangan — bantu tetap nyaman di cuaca panas.',
+      en: 'A small accessory that helps when recording outdoors — stay comfortable in hot weather.'
     },
     pros: {
-      id: ['Harga paling bersahabat', 'Hasil jauh lebih baik dari kopi sachet', 'Tahan lama'],
-      en: ['Friendliest price', 'Far better than instant coffee', 'Built to last']
+      id: ['Baterai 2500 mAh', 'Mini dan portabel', 'Teman shooting outdoor'],
+      en: ['2500 mAh battery', 'Mini and portable', 'Outdoor shooting companion']
     },
-    shopeeUrl: 'https://s.shopee.co.id/70KxNcVPgg', // ← LINK AFILIASI TERPASANG (konfirmasi: ini produk best-budget?)
+    shopeeUrl: 'https://s.shopee.co.id/70KxNcVPgg',
     reviewUrl: 'reviews.html'
   },
   {
     id: 'best-premium',
-    badge: { id: 'Best Premium', en: 'Best Premium' },
-    name: 'Monitor 27" 144Hz IPS — upgrade terbaik untuk kerja & gaming',
-    rating: null, // ← isi setelah risetmu
-    price: '±Rp2–3 jt (cek terbaru)',
+    badge: { id: 'TWS HEMAT', en: 'BUDGET TWS' },
+    name: 'ACEFAST T8 — TWS mini dengan ENC',
+    rating: null,
+    price: '',
     verdict: {
-      id: 'Contoh kurasi: upgrade yang paling terasa setiap hari — sekali beli, dipakai 5–7 tahun.',
-      en: 'Curation example: the upgrade you feel every single day — bought once, used 5–7 years.'
+      id: 'TWS ringan dengan mikrofon ENC untuk panggilan lebih jernih — pilihan hemat untuk pemakaian harian.',
+      en: 'Lightweight TWS with ENC mics for clearer calls — a budget-friendly daily pick.'
     },
     pros: {
-      id: ['Upgrade paling terasa', 'Awet 5–7 tahun', 'Worth it jangka panjang'],
-      en: ['Most noticeable upgrade', 'Lasts 5–7 years', 'Worth it long term']
+      id: ['True wireless bluetooth', 'ENC untuk panggilan jernih', 'Desain mini dan ringan'],
+      en: ['True wireless bluetooth', 'ENC for clearer calls', 'Mini, lightweight design']
     },
     shopeeUrl: 'https://s.shopee.co.id/7faeAuV2bT', // ← LINK AFILIASI TERPASANG (konfirmasi: ini produk best-premium?)
     reviewUrl: 'reviews.html'

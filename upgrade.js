@@ -138,6 +138,9 @@ function renderBestPicks() {
   if (!grid || !Array.isArray(window.GOODAYS_PICKS)) return;
   const picks = window.GOODAYS_PICKS.slice(0, 3);
   grid.innerHTML = picks.map((pick, index) => {
+    const metaBits = [];
+    if (pick.rating) metaBits.push(`${renderStars(pick.rating)} <span>${escapeHtml(String(pick.rating))} / 5</span>`);
+    if (pick.price) metaBits.push(`<span class="pick-price">${escapeHtml(pick.price)}</span>`);
     const badge = (pick.badge && (pick.badge[currentLang] || pick.badge.en)) || '';
     const verdict = (pick.verdict && (pick.verdict[currentLang] || pick.verdict.en)) || '';
     const pros = (pick.pros && (pick.pros[currentLang] || pick.pros.en)) || [];
@@ -150,7 +153,7 @@ function renderBestPicks() {
       ${badge ? `<span class="pick-badge">${escapeHtml(badge)}</span>` : ''}
       <span class="pick-rank">0${index + 1}</span>
       <h3 class="pick-name">${escapeHtml(pick.name)}</h3>
-      <div class="pick-meta">${renderStars(pick.rating)} <span>${escapeHtml(String(pick.rating || '—'))} / 5</span><span class="pick-price">${escapeHtml(pick.price || '')}</span></div>
+      <div class="pick-meta">${metaBits.join('')}</div>
       <p class="pick-verdict">${escapeHtml(verdict)}</p>
       <p class="pick-pros-label">${prosLabel}</p>
       <ul class="pick-pros">${pros.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>

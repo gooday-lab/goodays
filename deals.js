@@ -33,35 +33,35 @@
 window.GOODAYS_DEALS = [
   {
     id: 'deal-1',
-    title: 'Produk pilihan minggu ini #1', // ← GANTI dengan nama produk asli dari link
-    category: 'gadgets',
+    title: 'Lampu Perangkap Nyamuk Elektrik LED UV',
+    category: 'home',
     priceText: '',      // ← isi harga saat ini (cek di Shopee dulu)
     oldPrice: '',       // ← isi HANYA jika harga coret benar-benar akurat
     validUntil: '2026-12-31',
     verdict: {
-      id: 'Salah satu pilihan terbaik minggu ini — cek harganya sebelum kehabisan.',
-      en: 'One of the best picks this week — check the price before it runs out.'
+      id: 'Cara mengurangi nyamuk di kamar tanpa semprotan — cek rating dan ulasan pembeli di Shopee sebelum membeli.',
+      en: 'A chemical-free way to reduce mosquitoes indoors — check buyer ratings on Shopee before buying.'
     },
     shopeeUrl: 'https://s.shopee.co.id/1LgadKegDJ', // ← LINK AFILIASI TERPASANG (konfirmasi produk)
     widgetEmbed: '' // ← opsional: tempel kode widget resmi Shopee di sini untuk harga live
   },
   {
     id: 'deal-2',
-    title: 'Produk pilihan minggu ini #2', // ← GANTI dengan nama produk asli dari link
-    category: 'coffee',
+    title: 'KiTBEEZ K-POCKET — Action Camera Saku 4K',
+    category: 'gadgets',
     priceText: '',
     oldPrice: '',
     validUntil: '2026-12-31',
     verdict: {
-      id: 'Masuk daftar karena harganya saat ini layak — cek detailnya di Shopee.',
-      en: 'On the list because the current price makes sense — see details on Shopee.'
+      id: 'Action camera saku dengan pelacakan wajah AI dan filter bawaan — harga ramah untuk pemula konten.',
+      en: 'A pocket action camera with AI face tracking and built-in filters — budget-friendly for new creators.'
     },
     shopeeUrl: 'https://s.shopee.co.id/2gByDnzfQC', // ← LINK AFILIASI TERPASANG (konfirmasi produk)
     widgetEmbed: ''
   },
   {
     id: 'deal-3',
-    title: 'Produk pilihan minggu ini #3',
+    title: 'Slot deal berikutnya — menunggu link afiliasi',
     category: 'tech',
     priceText: '',
     oldPrice: '',

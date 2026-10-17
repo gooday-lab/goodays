@@ -21,14 +21,19 @@
     document.querySelectorAll('.cta-box').forEach((box) => {
       const pickId = box.dataset.pick;
       const dealId = box.dataset.deal;
-      const url = pickId ? resolveUrl('pick', pickId) : resolveUrl('deal', dealId);
-      const label = box.dataset.label || 'Cek harga di Shopee';
-      const note = box.dataset.note || 'Harga & stok bisa berubah — cek terbaru sebelum membeli.';
+      let url = '';
+      let affTag = '';
+      if (pickId) { url = resolveUrl('pick', pickId); affTag = `article-pick-${pickId}`; }
+      else if (dealId) { url = resolveUrl('deal', dealId); affTag = `article-deal-${dealId}`; }
+      else if (box.dataset.link) { url = box.dataset.link; } // link internal biasa (tanpa afiliasi)
+      const isAffiliate = !!(pickId || dealId);
+      const label = box.dataset.label || (isAffiliate ? 'Cek harga di Shopee' : 'Lihat Top Picks');
+      const note = box.dataset.note || (isAffiliate ? 'Harga & stok bisa berubah — cek terbaru sebelum membeli.' : '');
       box.innerHTML = `
         <div class="cta-inner">
-          <a class="button button-shopee affiliate-link" data-aff="article-${pickId || dealId}" data-product="${label}"
-             ${url ? `href="${url}" target="_blank" rel="nofollow sponsored noopener"` : 'href="#"'}>${label} <span>↗</span></a>
-          <a class="text-link" href="/#picks">Lihat Top Picks <span>→</span></a>
+          <a class="button button-shopee${isAffiliate ? ' affiliate-link' : ''}" ${isAffiliate ? `data-aff="${affTag}" data-product="${label}"` : ''}
+             ${url ? `href="${url}"${isAffiliate ? ' target="_blank" rel="nofollow sponsored noopener"' : ''}` : 'href="#"'}>${label} <span>↗</span></a>
+          ${isAffiliate ? '<a class="text-link" href="/#picks">Lihat Top Picks <span>→</span></a>' : ''}
           <small>${note}</small>
         </div>`;
     });
